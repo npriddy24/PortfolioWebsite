@@ -1,0 +1,87 @@
+/* Basic reset & typography */
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body {
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+  line-height: 1.5;
+  color: #222;
+  background: #f7f8fb;
+  padding: 20px;
+}
+
+/* Header */
+.site-header {
+  text-align: center;
+  margin-bottom: 20px;
+}
+.site-header h1 { font-size: 1.8rem; }
+.tagline { color: #666; }
+
+/* Layout container */
+.container {
+  max-width: 900px;
+  margin: 0 auto;
+  display: grid;
+  gap: 20px;
+  grid-template-columns: 1fr; /* stacked by default (mobile-first) */
+}
+
+/* Biography */
+.bio {
+  display: flex;
+  gap: 16px;
+  align-items: center;
+  background: #fff;
+  padding: 16px;
+  border-radius: 10px;
+  box-shadow: 0 1px 4px rgba(20,20,40,0.05);
+}
+.profile-photo {
+  width: 110px;
+  height: 110px;
+  object-fit: cover;
+  border-radius: 8px;
+  background: #ddd; /* placeholder color if no image found */
+}
+.bio-text h2 { margin-bottom: 8px; }
+
+/* Skills */
+.skills {
+  background: #fff;
+  padding: 16px;
+  border-radius: 10px;
+  box-shadow: 0 1px 4px rgba(20,20,40,0.05);
+}
+.skills h2 { margin-bottom: 12px; }
+
+.skill { margin-bottom: 12px; }
+.skill-title {
+  font-size: 0.95rem;
+  margin-bottom: 6px;
+}
+.skill-bar {
+  background: #e9eef6;
+  border-radius: 999px;
+  height: 12px;
+  overflow: hidden;
+}
+.skill-bar span {
+  display: block;
+  height: 100%;
+  background: linear-gradient(90deg, #4f8ef7, #7bd3ff);
+  border-radius: 999px;
+}
+
+/* Responsive: side-by-side layout on wider screens */
+@media (min-width: 760px) {
+  .container {
+    grid-template-columns: 1fr 320px; /* bio left, skills right */
+    align-items: start;
+  }
+  .bio { flex-direction: row; }
+}
+.site-footer {
+  text-align: center;
+  margin-top: 18px;
+  color: #666;
+  font-size: 0.9rem;
+}

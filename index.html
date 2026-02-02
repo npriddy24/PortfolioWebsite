@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Your Name — Portfolio</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="site-header">
+    <h1>Your Name</h1>
+    <p class="tagline">Web developer • Projects • Learning</p>
+  </header>
+
+  <main class="container">
+    <!-- Biography -->
+    <section class="bio">
+      <img src="profile.jpg" alt="Photo of Your Name" class="profile-photo">
+      <div class="bio-text">
+        <h2>About Me</h2>
+        <p>
+          Hi — I'm Your Name, a web development student who enjoys building small web apps
+          and learning modern JavaScript and CSS. I like solving problems and creating
+          simple, usable designs.
+        </p>
+        <p>
+          I am currently learning responsive layouts, accessibility, and frontend tooling.
+        </p>
+      </div>
+    </section>
+
+    <!-- Skills -->
+    <section class="skills">
+      <h2>Skills</h2>
+
+      <div class="skill">
+        <div class="skill-title">HTML</div>
+        <div class="skill-bar"><span style="width: 90%"></span></div>
+      </div>
+
+      <div class="skill">
+        <div class="skill-title">CSS</div>
+        <div class="skill-bar"><span style="width: 80%"></span></div>
+      </div>
+
+      <div class="skill">
+        <div class="skill-title">JavaScript</div>
+        <div class="skill-bar"><span style="width: 70%"></span></div>
+      </div>
+
+      <div class="skill">
+        <div class="skill-title">React (learning)</div>
+        <div class="skill-bar"><span style="width: 50%"></span></div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <p>© <span id="year"></span> Your Name — Built with care</p>
+  </footer>
+
+  <script>
+    // Set current year
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
