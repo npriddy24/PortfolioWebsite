@@ -3,65 +3,172 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Your Name — Portfolio</title>
+  <title>Nicole Priddy — Portfolio</title>
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
   <header class="site-header">
-    <h1>Your Name</h1>
-    <p class="tagline">Web developer • Projects • Learning</p>
+    <h1>Nikki Priddy</h1>
+    <p class="tagline">Information Systems and Technology Student • Web Development • Fintech Enthusiast • <a href="https://www.linkedin.com/in/nikki-priddy" target="_blank" rel="noopener noreferrer" class="linkedin-link">LinkedIn</a></p>
+
+    <nav class="settings" aria-label="Menu">
+      <button class="settings-toggle" aria-expanded="false" aria-controls="settings-menu">Menu</button>
+      <div id="settings-menu" class="settings-menu" role="menu" aria-hidden="true">
+        <a href="#about" role="menuitem">About</a>
+        <a href="#skills" role="menuitem">Skills</a>
+        <a href="#projects" role="menuitem">Projects</a>
+        <a href="#education" role="menuitem">Education</a>
+        <a href="#hobbies" role="menuitem">Hobbies</a>
+        <a href="mailto:your-email@example.com" role="menuitem" class="contact-link" title="Edit this link to your email or contact page">Contact</a>
+      </div>
+    </nav>
   </header>
 
   <main class="container">
     <!-- Biography -->
-    <section class="bio">
-      <img src="profile.jpg" alt="Photo of Your Name" class="profile-photo">
+    <section id="about" class="bio">
+      <img src="images/headshot.JPG" alt="Photo of Nicole Priddy" class="profile-photo">
       <div class="bio-text">
         <h2>About Me</h2>
         <p>
-          Hi — I'm Your Name, a web development student who enjoys building small web apps
-          and learning modern JavaScript and CSS. I like solving problems and creating
-          simple, usable designs.
-        </p>
-        <p>
-          I am currently learning responsive layouts, accessibility, and frontend tooling.
+          Hello world! I'm Nikki Priddy, an Information Systems and Technology student at the University of Texas at San Antonio. 
+          I have a passion for solving problems creatively and stepping outside of the box. 
+          I recently spent the past four years working in Digital Banking and decided to leave to continue my education in pursuit of a career in fintech.
         </p>
       </div>
     </section>
 
+    <!-- Hobbies (with gallery) -->
+    <section id="hobbies" class="hobbies narrow">
+      <h2>Hobbies</h2>
+
+      <div class="hobbies-grid">
+        <div class="gallery">
+          <button class="prev" aria-label="Previous image">‹</button>
+          <img id="main-hobby-image" src="images/hobby1.jpg" alt="Hobby image 1">
+          <button class="next" aria-label="Next image">›</button>
+          <div class="gallery-caption" id="gallery-caption">Hobby 1</div>
+        </div>
+
+        <div class="gallery-thumbs" role="tablist" aria-label="Hobby thumbnails">
+          <button class="thumb" data-src="images/hobby1.jpg" data-alt="Hobby 1" aria-label="Hobby 1">1</button>
+          <button class="thumb" data-src="images/hobby2.jpg" data-alt="Hobby 2" aria-label="Hobby 2">2</button>
+          <button class="thumb" data-src="images/hobby3.jpg" data-alt="Hobby 3" aria-label="Hobby 3">3</button>
+          <button class="thumb" data-src="images/hobby4.jpg" data-alt="Hobby 4" aria-label="Hobby 4">4</button>
+        </div>
+      </div>
+
+      <ul class="hobbies-list">
+        <li>Outdoors</li>
+        <li>Cooking</li>
+        <li>Traveling</li>
+        <li>Music</li>
+      </ul>
+    </section>
+
+    <!-- Education -->
+    <section id="education" class="education narrow">
+      <h2>Education</h2>
+      <p><strong>University of Texas at San Antonio</strong> — B.S. Information Systems and Technology (May 2027)</p>
+      <p><strong>Northeast Texas Community College</strong> — A.S. Business Administration (May 2025)</p>
+    </section>
+
     <!-- Skills -->
-    <section class="skills">
+    <section id="skills" class="skills narrow">
       <h2>Skills</h2>
 
-      <div class="skill">
-        <div class="skill-title">HTML</div>
-        <div class="skill-bar"><span style="width: 90%"></span></div>
-      </div>
+      <ul class="skills-list">
+        <li>HTML</li>
+        <li>CSS</li>
+        <li>Commercial Banking Operations</li>
+        <li>Customer Service</li>
+      </ul>
+    </section> 
 
-      <div class="skill">
-        <div class="skill-title">CSS</div>
-        <div class="skill-bar"><span style="width: 80%"></span></div>
-      </div>
-
-      <div class="skill">
-        <div class="skill-title">JavaScript</div>
-        <div class="skill-bar"><span style="width: 70%"></span></div>
-      </div>
-
-      <div class="skill">
-        <div class="skill-title">React (learning)</div>
-        <div class="skill-bar"><span style="width: 50%"></span></div>
-      </div>
+    <!-- Projects -->
+    <section id="projects" class="projects narrow">
+      <h2>Projects</h2>
+      <p>Coming soon — project highlights will be added here.</p>
     </section>
   </main>
 
   <footer class="site-footer">
-    <p>© <span id="year"></span> Your Name — Built with care</p>
+    <p>© <span id="year"></span> Nikki Priddy — Built with love <3 </p>
   </footer>
 
   <script>
     // Set current year
     document.getElementById('year').textContent = new Date().getFullYear();
+
+    // Settings menu toggle and smooth scroll
+    const settings = document.querySelector('.settings');
+    const btn = document.querySelector('.settings-toggle');
+    const menu = document.getElementById('settings-menu');
+
+    btn.addEventListener('click', (e) => {
+      const open = settings.classList.toggle('open');
+      btn.setAttribute('aria-expanded', open ? 'true' : 'false');
+      menu.setAttribute('aria-hidden', open ? 'false' : 'true');
+    });
+
+    // Close menu when clicking outside
+    document.addEventListener('click', (e) => {
+      if (!settings.contains(e.target)) {
+        settings.classList.remove('open');
+        btn.setAttribute('aria-expanded', 'false');
+        menu.setAttribute('aria-hidden', 'true');
+      }
+    });
+
+    // Smooth scrolling and close menu after selection
+    document.querySelectorAll('.settings-menu a').forEach((link) => {
+      link.addEventListener('click', (e) => {
+        const href = link.getAttribute('href') || '';
+        if (href.startsWith('#')) {
+          e.preventDefault();
+          const id = href.slice(1);
+          const el = document.getElementById(id);
+          if (el) {
+            el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+          }
+        }
+        // Close menu for all links after click
+        settings.classList.remove('open');
+        btn.setAttribute('aria-expanded', 'false');
+        menu.setAttribute('aria-hidden', 'true');
+      });
+    });
+
+    // Hobbies gallery (4 images): simple thumbnails + prev/next
+    (function() {
+      const images = [
+        {src: 'images/hobby1.jpg', alt: 'Hobby 1', caption: 'Hobby 1'},
+        {src: 'images/hobby2.jpg', alt: 'Hobby 2', caption: 'Hobby 2'},
+        {src: 'images/hobby3.jpg', alt: 'Hobby 3', caption: 'Hobby 3'},
+        {src: 'images/hobby4.jpg', alt: 'Hobby 4', caption: 'Hobby 4'}
+      ];
+      let idx = 0;
+      const main = document.getElementById('main-hobby-image');
+      const caption = document.getElementById('gallery-caption');
+      const thumbs = document.querySelectorAll('.gallery-thumbs .thumb');
+      const prev = document.querySelector('.gallery .prev');
+      const next = document.querySelector('.gallery .next');
+
+      function setImage(i) {
+        idx = (i + images.length) % images.length;
+        if (main) {
+          main.src = images[idx].src;
+          main.alt = images[idx].alt;
+        }
+        if (caption) caption.textContent = images[idx].caption;
+        thumbs.forEach((t, ti) => t.classList.toggle('active', ti === idx));
+      }
+
+      thumbs.forEach((t, i) => t.addEventListener('click', () => setImage(i)));
+      if (prev) prev.addEventListener('click', () => setImage(idx - 1));
+      if (next) next.addEventListener('click', () => setImage(idx + 1));
+      setImage(0);
+    })();
   </script>
 </body>
 </html>
