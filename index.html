@@ -4,12 +4,18 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Nicole Priddy — Portfolio</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&family=Orbitron:wght@400;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
   <header class="site-header">
     <h1>Nikki Priddy</h1>
-    <p class="tagline">Information Systems and Technology Student • Web Development • Fintech Enthusiast • <a href="https://www.linkedin.com/in/nikki-priddy" target="_blank" rel="noopener noreferrer" class="linkedin-link">LinkedIn</a></p>
+    <p class="tagline">Information Systems and Technology Student • Web Development • Fintech Enthusiast • <a href="https://www.linkedin.com/in/nikki-priddy" target="_blank" rel="noopener noreferrer" class="linkedin-link" aria-label="LinkedIn profile">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg">
+        <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.028-3.039-1.852-3.039-1.853 0-2.136 1.445-2.136 2.939v5.669h-3.554V9h3.414v1.561h.049c.476-.9 1.637-1.852 3.37-1.852 3.602 0 4.268 2.37 4.268 5.457v6.286zM5.337 7.433a2.064 2.064 0 110-4.128 2.064 2.064 0 010 4.128zM6.966 20.452H3.707V9h3.258v11.452z"/>
+      </svg>
+      <span class="sr-only">LinkedIn</span>
+    </a></p>
 
     <nav class="settings" aria-label="Menu">
       <button class="settings-toggle" aria-expanded="false" aria-controls="settings-menu">Menu</button>
@@ -19,7 +25,7 @@
         <a href="#projects" role="menuitem">Projects</a>
         <a href="#education" role="menuitem">Education</a>
         <a href="#hobbies" role="menuitem">Hobbies</a>
-        <a href="mailto:your-email@example.com" role="menuitem" class="contact-link" title="Edit this link to your email or contact page">Contact</a>
+        <a href="mailto:npriddy24@gmail.com" role="menuitem" class="contact-link" title="Email npriddy24@gmail.com">Contact</a>
       </div>
     </nav>
   </header>
@@ -29,41 +35,12 @@
     <section id="about" class="bio">
       <img src="images/headshot.JPG" alt="Photo of Nicole Priddy" class="profile-photo">
       <div class="bio-text">
-        <h2>About Me</h2>
         <p>
           Hello world! I'm Nikki Priddy, an Information Systems and Technology student at the University of Texas at San Antonio. 
           I have a passion for solving problems creatively and stepping outside of the box. 
-          I recently spent the past four years working in Digital Banking and decided to leave to continue my education in pursuit of a career in fintech.
+          I recently spent the past four years working full time in Digital Banking and decided to quit to continue my education in pursuit of a career in fintech.
         </p>
-      </div>
-    </section>
-
-    <!-- Hobbies (with gallery) -->
-    <section id="hobbies" class="hobbies narrow">
-      <h2>Hobbies</h2>
-
-      <div class="hobbies-grid">
-        <div class="gallery">
-          <button class="prev" aria-label="Previous image">‹</button>
-          <img id="main-hobby-image" src="images/hobby1.jpg" alt="Hobby image 1">
-          <button class="next" aria-label="Next image">›</button>
-          <div class="gallery-caption" id="gallery-caption">Hobby 1</div>
-        </div>
-
-        <div class="gallery-thumbs" role="tablist" aria-label="Hobby thumbnails">
-          <button class="thumb" data-src="images/hobby1.jpg" data-alt="Hobby 1" aria-label="Hobby 1">1</button>
-          <button class="thumb" data-src="images/hobby2.jpg" data-alt="Hobby 2" aria-label="Hobby 2">2</button>
-          <button class="thumb" data-src="images/hobby3.jpg" data-alt="Hobby 3" aria-label="Hobby 3">3</button>
-          <button class="thumb" data-src="images/hobby4.jpg" data-alt="Hobby 4" aria-label="Hobby 4">4</button>
-        </div>
-      </div>
-
-      <ul class="hobbies-list">
-        <li>Outdoors</li>
-        <li>Cooking</li>
-        <li>Traveling</li>
-        <li>Music</li>
-      </ul>
+      </div> 
     </section>
 
     <!-- Education -->
@@ -83,7 +60,18 @@
         <li>Commercial Banking Operations</li>
         <li>Customer Service</li>
       </ul>
-    </section> 
+    </section>
+
+    <!-- Hobbies -->
+    <section id="hobbies" class="hobbies narrow">
+      <h2>Hobbies</h2>
+      <ul class="hobbies-list">
+        <li>The Outdoors</li>
+        <li>Cooking</li>
+        <li>Traveling</li>
+        <li>Music</li>
+      </ul>
+    </section>
 
     <!-- Projects -->
     <section id="projects" class="projects narrow">
@@ -139,36 +127,6 @@
       });
     });
 
-    // Hobbies gallery (4 images): simple thumbnails + prev/next
-    (function() {
-      const images = [
-        {src: 'images/hobby1.jpg', alt: 'Hobby 1', caption: 'Hobby 1'},
-        {src: 'images/hobby2.jpg', alt: 'Hobby 2', caption: 'Hobby 2'},
-        {src: 'images/hobby3.jpg', alt: 'Hobby 3', caption: 'Hobby 3'},
-        {src: 'images/hobby4.jpg', alt: 'Hobby 4', caption: 'Hobby 4'}
-      ];
-      let idx = 0;
-      const main = document.getElementById('main-hobby-image');
-      const caption = document.getElementById('gallery-caption');
-      const thumbs = document.querySelectorAll('.gallery-thumbs .thumb');
-      const prev = document.querySelector('.gallery .prev');
-      const next = document.querySelector('.gallery .next');
-
-      function setImage(i) {
-        idx = (i + images.length) % images.length;
-        if (main) {
-          main.src = images[idx].src;
-          main.alt = images[idx].alt;
-        }
-        if (caption) caption.textContent = images[idx].caption;
-        thumbs.forEach((t, ti) => t.classList.toggle('active', ti === idx));
-      }
-
-      thumbs.forEach((t, i) => t.addEventListener('click', () => setImage(i)));
-      if (prev) prev.addEventListener('click', () => setImage(idx - 1));
-      if (next) next.addEventListener('click', () => setImage(idx + 1));
-      setImage(0);
-    })();
   </script>
 </body>
 </html>
